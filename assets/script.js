@@ -2,75 +2,64 @@ var highscoreBtn = document.querySelector("#highscore-link");
 
 
 highscoreBtn.addEventListener("click", () => {
-    document.location.replace("./highscore.html");
-  });
-
-/*
- 1. Design UI
-    - Draw a picture
-    - Determine where you will display feedback. 
-    - Determine what is clickable, what will recieve key input, change input
-      timers, scroll events, etc
-    - rough in the elements in HTML, style is less important
-
-*/
+  document.location.replace("./highscore.html");
+});
 
 
+//DOM hooks for index.html//
+var body = document.body;
+var highscoreBtn = document.querySelector("#highscore-link");
+var mainPromt = document.getElementById("main-promt");
+var mainButtons = document.querySelector("#main-content");
+var secondaryPromt = document.querySelector("#secondary-promt");
 
-/*
-  2. Declare variables: DOM hooks
-    - In the Javascript, create variables for each of the DOM elements that will display feedback
-    - create variables for the elements that will receive input
-    - set each variable to its DOM element like:
-    
-    var theElement = document.querySelector([CSS Selector for your element]);
- */
+//DOM hooks for highscore.html//
 
-/*
- 3. Declare variables: state
-    - What are the data that need to be kept track of? 
-    - Global state variables sometimes emerge while working on event handlers (i.e., it
-      becomes clearer what needs to be tracked across the application)
-    - state variables:
-      "State describes the status of the entire program or an individual
-       object. It could be text, a number, a boolean, or another data type.
+var scoreList = document.querySelector("#score-list");
+var clearScoreBtn = document.querySelector("#clear-scores");
+var allDoneBtn = document.querySelector("#homepage-link");
+var timer = document.querySelector("#timer");
+var timeLeft = 100;
 
-       It’s a common tool for coordinating code. For example, once you update state, a bunch of different functions can instantly react to that change."
-       https://www.freecodecamp.org/news/state-in-javascript-explained-by-cooking-a-simple-meal-2baf10a787ee/
-    - Does the state variable need to be global (i.e., used by all the event handlers) or does it only need to be local
-      to the event handler?
-*/
+//Variables for quiz content//
 
-/*
- 4. Declare variables: constants
-    - What are the data the application needs that won't change?
-    - e.g. Math constants, pre-created content (maybe the questions and answers?)
-*/
-
-/*
- 5. Identify events
-    - Based on the variables created in Step 2, create event handlers
-
-      theElement.addeventListener([EVENT TYPE], function(event){
-        // do stuff here...
-      })
-
-    ...where [EVENT TYPE] is "click" or "change" or "keydown" or whatver
-
-    - Identify the things that should happen in the click handlers
-    - Rememember: there is always a page load event. Usually have a function for anything
-      that needs setting up at the beginning, before people interact with the 
-      page. Start the execution of this setup function at the bottom of page
-*/
-
-/*
- 6. Refactor
-    - identify tasks that can be broken into their own functions, outside the event handlers
-    - Are there tasks that more than one event handler share?
-*/
+var q1 = "1. Which of the following best describes a Web API?";
+var q2 = "2. Your colleague notices that when she clicks on a <p> element on her page, handlers run on <p> and on <p>'s parent elements as well. She asks you to help her debug. Which of the following is most likely?";
+var q3 = "3. Which property can you use in order to implement event delegation?"
+var q4 = "4.Which statement best describes what is happening to data when it is persisted to local storage.";
 
 //Main-page//
 
-//Quiz-page//
+function mainPage() {
+  timer.textContent = "Time Left: " + timeLeft;
+  mainPromt.textContent = "Code Quiz Challenge";
+  mainButtons.textContent = "Start Quiz";
 
-//Score-page//
+}
+mainPage();
+
+//Quiz-page//
+function quizStart() {
+  //TIMER//
+  mainButtons.addEventListener("click", function () {
+
+
+    var timerInterval = setInterval(function () {
+
+      var countDown = timeLeft--;
+      timer.textContent = "Time Left: " + countDown;
+      if (timeLeft === 0) {
+        clearInterval(timerInterval);
+      }
+    }, 1000);
+  })
+}
+
+
+quizStart();
+
+function timeUp() {
+
+}
+
+//Score Page //

@@ -1,6 +1,7 @@
 # Timed-quiz
 
 ## Link to deployed site
+https://hayni100.github.io/Timed-quiz/
 
 ## DESCRIPTION
 This project is incomplete.

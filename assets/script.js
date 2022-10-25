@@ -101,7 +101,8 @@ mainPage();
 
 //Quiz-page//
 function quizStart() {
-  //TIMER//
+
+  //TIMER runs 100seconds backwards//
 
   mainButtons.addEventListener("click", function () {
     quizPage();

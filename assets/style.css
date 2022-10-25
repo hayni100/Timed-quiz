@@ -12,6 +12,34 @@ header {
 
 }
 
-.button {
+h1 {
+    text-align: center;
+    font-size: 45px;
+}
+
+h2 {
+    text-align: center;
     font-size: 30px;
 }
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+}
+button {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  align-items: center;
+
+}
+.button {
+    width: 300px;
+    font-size: 30px;
+    align-items: center;    
+}
+
